@@ -30,7 +30,8 @@ public class ResultController {
     }
 
     @RequestMapping(method = RequestMethod.GET, path = "/result")
-    public String getResultById(@RequestParam(value = "competitor_id", defaultValue="15") long competitorId) {
-        return this.resultRepository.findOnceByCompetitorId(competitorId).toString();
+    public Result getResultById(@RequestParam(value = "competitor_id", defaultValue="15") long competitorId) {
+
+        return this.resultRepository.findOnceByCompetitorId(competitorId);
     }
 }

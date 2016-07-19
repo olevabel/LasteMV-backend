@@ -30,6 +30,7 @@ repositories {
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
     compile("org.springframework.boot:spring-boot-starter-web")
+    compile group: 'com.google.code.gson', name: 'gson', version: '2.7'
     runtime('com.h2database:h2')
     compile "org.flywaydb:flyway-core:4.0.3"
     runtime('org.postgresql:postgresql')

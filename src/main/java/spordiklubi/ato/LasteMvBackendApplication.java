@@ -1,10 +1,12 @@
 package spordiklubi.ato;
 
+import com.google.gson.Gson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.json.GsonJsonParser;
 import org.springframework.context.annotation.Bean;
 import spordiklubi.ato.dto.Competitor;
 import spordiklubi.ato.dto.Result;
@@ -28,6 +30,9 @@ public class LasteMvBackendApplication {
         return (args) -> {
             resultRepository.deleteAll();
             competitorRepository.deleteAll();
+            Gson gson = new Gson();
+            String json = gson.toJson(new Competitor("Olev", "Abel", 23, "M", "Käru", "+37253308299", "olevabel@gmail.com", 0));
+            log.info(json);
             competitorRepository.save(new Competitor("Olev", "Abel", 23, "M", "Käru", "+37253308299", "olevabel@gmail.com", 0));
             competitorRepository.save(new Competitor("Mari", "Maasikas", 13, "N", "Käru", "+37253308299", "olevabel@gmail.com", 0));
             competitorRepository.save(new Competitor("Paavo", "Vaarikas", 3, "M", "Vigala", "+37253303499", "pvaarikas@gmail.com", 0));

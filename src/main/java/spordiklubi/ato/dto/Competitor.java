@@ -25,9 +25,9 @@ public class Competitor {
 
     protected Competitor() {}
 
-    public Competitor(String firstName, String lastName, int age, String gender, String county, String parentPhone, String parentEmail, long refereeId) {
-        this.firstname = firstName;
-        this.lastname = lastName;
+    public Competitor(String firstname, String lastname, int age, String gender, String county, String parentPhone, String parentEmail, long refereeId) {
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.age = age;
         this.gender = gender;
         this.county = county;
@@ -46,20 +46,20 @@ public class Competitor {
         this.id = id;
     }
 
-    public String getFirstName() {
+    public String getFirstname() {
         return firstname;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstname = firstName;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
-    public String getLastName() {
+    public String getLastname() {
         return lastname;
     }
 
-    public void setLastName(String lastName) {
-        this.lastname = lastName;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     public int getAge() {
@@ -114,8 +114,8 @@ public class Competitor {
     public String toString() {
         return "Competitor{" +
                 "id=" + id +
-                ", firstName='" + firstname + '\'' +
-                ", lastName='" + lastname + '\'' +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
                 ", age=" + age +
                 ", gender='" + gender + '\'' +
                 ", county='" + county + '\'' +
