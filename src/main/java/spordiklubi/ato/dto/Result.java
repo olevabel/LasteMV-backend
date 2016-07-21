@@ -11,7 +11,7 @@ import javax.persistence.Id;
 @Entity
 public class Result {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private long competitorId;
     private String sprint;
