@@ -1,4 +1,4 @@
-CREATE SEQUENCE hibernate_sequence;
+
 CREATE TABLE IF NOT EXISTS competitor(
 id BIGINT NOT NULL PRIMARY KEY,
 firstname VARCHAR(100) NOT NULL,
