@@ -7,7 +7,6 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import javax.sql.DataSource;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.sql.DriverManager;
 
 /**
  * Created by olevabel on 7/21/16.

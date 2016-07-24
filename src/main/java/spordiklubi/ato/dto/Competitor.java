@@ -12,7 +12,7 @@ import javax.persistence.Id;
 @Entity
 public class Competitor {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String firstname;
     private String lastname;
@@ -23,7 +23,8 @@ public class Competitor {
     private String parentEmail;
     private long refereeId;
 
-    protected Competitor() {}
+    protected Competitor() {
+    }
 
     public Competitor(String firstname, String lastname, int age, String gender, String county, String parentPhone, String parentEmail, long refereeId) {
         this.firstname = firstname;
@@ -35,7 +36,6 @@ public class Competitor {
         this.parentEmail = parentEmail;
         this.refereeId = refereeId;
     }
-
 
 
     public long getId() {

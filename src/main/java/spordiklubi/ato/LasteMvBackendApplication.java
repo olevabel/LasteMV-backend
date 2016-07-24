@@ -51,9 +51,6 @@ public class LasteMvBackendApplication {
         return (args) -> {
             resultRepository.deleteAll();
             competitorRepository.deleteAll();
-            Gson gson = new Gson();
-            String json = gson.toJson(new Competitor("Olev", "Abel", 23, "M", "Käru", "+37253308299", "olevabel@gmail.com", 0));
-            log.info(json);
             competitorRepository.save(new Competitor("Olev", "Abel", 23, "M", "Käru", "+37253308299", "olevabel@gmail.com", 0));
             competitorRepository.save(new Competitor("Mari", "Maasikas", 13, "N", "Käru", "+37253308299", "olevabel@gmail.com", 0));
             competitorRepository.save(new Competitor("Paavo", "Vaarikas", 3, "M", "Vigala", "+37253303499", "pvaarikas@gmail.com", 0));
