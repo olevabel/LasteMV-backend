@@ -1,6 +1,5 @@
 package spordiklubi.ato;
 
-import com.google.gson.Gson;
 import org.flywaydb.core.Flyway;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
