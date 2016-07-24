@@ -1,19 +1,22 @@
 package spordiklubi.ato;
 
 import com.google.gson.Gson;
+import org.flywaydb.core.Flyway;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.json.GsonJsonParser;
 import org.springframework.context.annotation.Bean;
 import spordiklubi.ato.dto.Competitor;
 import spordiklubi.ato.dto.Result;
 import spordiklubi.ato.dto.repositories.CompetitorRepository;
-import spordiklubi.ato.dto.Referee;
-import spordiklubi.ato.dto.repositories.RefereeRepository;
 import spordiklubi.ato.dto.repositories.ResultRepository;
+
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 @SpringBootApplication
 public class LasteMvBackendApplication {
@@ -21,6 +24,24 @@ public class LasteMvBackendApplication {
     private static final Logger log = LoggerFactory.getLogger(LasteMvBackendApplication.class);
 
     public static void main(String[] args) {
+        try {
+            String password = "";
+            URI uri = new URI(System.getenv("DATABASE_URL"));
+            String[] userinfo = uri.getUserInfo().split(":");
+            String username = uri.getUserInfo().split(":")[0];
+            if(userinfo.length > 1) {
+                password =userinfo[1];
+            }
+            String dbUrl = System.getenv("JDBC_DRIVER") + uri.getHost() + ":" + uri.getPort() + uri.getPath();
+            DriverManager.getConnection(dbUrl, username, password);
+            Flyway flyway = new Flyway();
+            flyway.setDataSource(dbUrl,username,password);
+            flyway.migrate();
+
+        } catch (URISyntaxException | SQLException e) {
+            e.printStackTrace();
+        }
+
         SpringApplication.run(LasteMvBackendApplication.class, args);
 
     }
