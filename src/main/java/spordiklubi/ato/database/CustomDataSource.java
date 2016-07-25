@@ -26,6 +26,7 @@ public class CustomDataSource {
             }
             String dbUrl = System.getenv("JDBC_DRIVER") + uri.getHost() + ":" + uri.getPort() + uri.getPath();
             return new DriverManagerDataSource(dbUrl, username, password);
+
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
