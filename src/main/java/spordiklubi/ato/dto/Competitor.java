@@ -1,6 +1,8 @@
 package spordiklubi.ato.dto;
 
 
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,6 +12,7 @@ import javax.persistence.Id;
  * Created by olevabel on 7/18/16.
  */
 @Entity
+@JsonRootName(value = "competitor")
 public class Competitor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
