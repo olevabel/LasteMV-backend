@@ -29,6 +29,7 @@ public class CompetitorController {
     @RequestMapping(method = RequestMethod.POST, path = "/competitors")
     public ResponseEntity<Competitor> addCompetitor(@RequestBody Competitor competitor) {
         log.info("inserted competitor " + competitor.toString());
+        System.out.println("inserted competitor " + competitor.toString());
         competitorRepository.save(competitor);
         return new ResponseEntity<>(competitor, HttpStatus.CREATED);
     }
