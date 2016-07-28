@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import spordiklubi.ato.dto.Competitor;
 import spordiklubi.ato.dto.repositories.CompetitorRepository;
 
+import java.util.ArrayList;
+
 /**
  * Created by olevabel on 7/19/16.
  */
@@ -36,4 +38,7 @@ public class CompetitorController {
         competitorRepository.save(competitor);
         return new ResponseEntity<>(competitor, HttpStatus.CREATED);
     }
+
+    @RequestMapping(method = RequestMethod.GET, path = "/competitors")
+    public ArrayList<Competitor> getCompetitors() { return this.competitorRepository.findAll();}
 }
