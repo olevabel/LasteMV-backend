@@ -1,5 +1,7 @@
 package spordiklubi.ato.network.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +31,8 @@ public class CompetitorController {
     @RequestMapping(method = RequestMethod.POST, path = "/competitors")
     public ResponseEntity<Competitor> addCompetitor(@RequestBody Competitor competitor) {
         log.info("inserted competitor " + competitor.toString());
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.enable(SerializationFeature.WRAP_ROOT_VALUE);
         competitorRepository.save(competitor);
         return new ResponseEntity<>(competitor, HttpStatus.CREATED);
     }
