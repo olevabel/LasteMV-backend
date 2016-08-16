@@ -61,8 +61,6 @@ public class CompetitorController {
     private HttpHeaders addHeader() {
         HttpHeaders headers = new HttpHeaders();
         headers.add(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN, "*");
-        headers.add(HttpHeaders.CONTENT_TYPE, "text/plain");
-        headers.add(HttpHeaders.CONTENT_ENCODING, "UTF-8");
         return headers;
     }
 }
