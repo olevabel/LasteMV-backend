@@ -50,7 +50,7 @@ public class CompetitorController {
         return new ResponseEntity<>(this.competitorRepository.findAll(), headers, HttpStatus.OK);
     }
 
-    @RequestMapping(method = RequestMethod.PUT, path = "/competitors")
+    @RequestMapping(method = RequestMethod.PUT, path = "/competitors/edit")
     public ResponseEntity<Competitor> editCompetitor(@RequestBody Competitor competitor) {
         log.info("editCompetitor " + competitor.toString());
         ObjectMapper objectMapper = new ObjectMapper();
