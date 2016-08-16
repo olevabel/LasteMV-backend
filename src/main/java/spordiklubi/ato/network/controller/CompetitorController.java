@@ -52,6 +52,7 @@ public class CompetitorController {
 
     @RequestMapping(method = RequestMethod.PUT, path = "/competitors")
     public ResponseEntity<Competitor> editCompetitor(@RequestBody Competitor competitor) {
+        log.info("editCompetitor " + competitor.toString());
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.enable(SerializationFeature.WRAP_ROOT_VALUE);
         competitorRepository.save(competitor);
