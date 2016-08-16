@@ -38,15 +38,13 @@ public class CompetitorController {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.enable(SerializationFeature.WRAP_ROOT_VALUE);
         competitorRepository.save(competitor);
-        HttpHeaders headers = new HttpHeaders();
-        headers.add(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN, "*");
+        HttpHeaders headers = addHeader();
         return new ResponseEntity<>(competitor, headers, HttpStatus.CREATED);
     }
 
     @RequestMapping(method = RequestMethod.GET, path = "/competitors")
     public ResponseEntity<ArrayList<Competitor>> getCompetitors() {
-        HttpHeaders headers = new HttpHeaders();
-        headers.add(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN, "*");
+        HttpHeaders headers = addHeader();
         return new ResponseEntity<>(this.competitorRepository.findAll(), headers, HttpStatus.OK);
     }
 
@@ -56,8 +54,15 @@ public class CompetitorController {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.enable(SerializationFeature.WRAP_ROOT_VALUE);
         competitorRepository.save(competitor);
+        HttpHeaders headers = addHeader();
+        return new ResponseEntity<>(competitor, headers, HttpStatus.OK);
+    }
+
+    private HttpHeaders addHeader() {
         HttpHeaders headers = new HttpHeaders();
         headers.add(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN, "*");
-        return new ResponseEntity<>(competitor, headers, HttpStatus.OK);
+        headers.add(HttpHeaders.CONTENT_TYPE, "text/plain");
+        headers.add(HttpHeaders.CONTENT_ENCODING, "UTF-8");
+        return headers;
     }
 }
