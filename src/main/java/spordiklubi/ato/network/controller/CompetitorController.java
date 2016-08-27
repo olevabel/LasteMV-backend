@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import spordiklubi.ato.dto.Competitor;
 import spordiklubi.ato.dto.repositories.CompetitorRepository;
 
-import java.util.*;
+import java.util.ArrayList;
 
 /**
  * Created by olevabel on 7/19/16.
@@ -51,8 +50,8 @@ public class CompetitorController {
     @RequestMapping(method = RequestMethod.POST, path = "/competitors/edit")
     public ResponseEntity<Competitor> editCompetitor(@RequestBody Competitor competitor) {
         log.info("editCompetitor " + competitor.toString());
-        ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.enable(SerializationFeature.WRAP_ROOT_VALUE);
+        //ObjectMapper objectMapper = new ObjectMapper();
+        //objectMapper.enable(SerializationFeature.WRAP_ROOT_VALUE);
         competitorRepository.save(competitor);
         HttpHeaders headers = addHeader();
         return new ResponseEntity<>(competitor, headers, HttpStatus.OK);
